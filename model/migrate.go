@@ -4,10 +4,12 @@ package model
 
 import (
 	"fmt"
-	"typefile"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
+
+// 外部でdb操作をするためのパッケージ変数
+var Db *gorm.DB
 
 func InitDB() {
 	var err error
@@ -22,18 +24,6 @@ func InitDB() {
 		fmt.Println("database successfully configure")
 	}
 
-	// マイグレーションは定義したstructをAutoMigrateの引数に渡すことで、
-	// それに対応するテーブルの作成を行う。
-	// テーブル作成時にオプションを付けたい場合、db.Set()を利用する。
-	db.AutoMigrate(&typefile.Request{})
-
-	// Insert
-	// db.Create(&request)
-
-	// Select
-    // db.Find(&request, "id = ?", 10)
-
-    // Batch Insert
-    // var requests = []User{request1, request2, request3}
-    // db.Create(&users)
+	// 接続したdbをパッケージ変数Dbに代入している。
+	Db = db
 }
