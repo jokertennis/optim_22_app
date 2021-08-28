@@ -6,9 +6,13 @@ import (
   // コメントを外す
   "optim_22_app/model"
   "optim_22_app/typefile"
+  "optim_22_app/pkg/log"
 )
 
 func main() {
+  //zapロガーを設定ファイル`config/zap.yaml`を元に取得
+  logger := log.New()
+  logger.Debugf("start app")
   // DB接続後、マイグレーションを実行する。
   // 手順としては、まずコンテナを立ち上げた後、mysqlでoptim_devデータベースを作成する。
   // その後、model.InitDB(),import(optim_22_app/model)のコメントを外し、カレントディレクトリでgo run main.goを実行する。
