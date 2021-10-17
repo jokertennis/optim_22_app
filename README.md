@@ -1,5 +1,10 @@
 # optim_22_app
 
+## システム構成図
+
+![システム構成図](https://raw.githubusercontent.com/optim22team/optim_22_app/add-architecture-diagram/architecture_diagram.svg  "システム構成図")
+
+
 ## 環境構築手順
 
 step1 optim-22-appのリポジトリをcloneする。  
@@ -56,13 +61,6 @@ step13 カレントディレクトリで以下のコマンドを実行する。
 go run main.go
 ```
 step14 ブラウザで[http://localhost:8081](http://localhost:8081)にアクセスする。  
-
-
-
-## システム構成図
-
-![システム構成図](https://raw.githubusercontent.com/optim22team/optim_22_app/add-architecture-diagram/architecture_diagram.svg  "システム構成図")
-
 
 
 ## ディレクトリ構成
