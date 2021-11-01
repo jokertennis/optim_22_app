@@ -292,7 +292,7 @@ export default {
       const user_id = localStorage.getItem("user_id");
       this.myself = this.$route.params.user_id == user_id && this.loggedin;
       const access_token = localStorage.getItem("access_token");
-      this.profile = await api.getProfile(
+      this.profile = await api.getProfile(this,
         this.$route.params.user_id,
         access_token
       );
@@ -318,7 +318,7 @@ export default {
     const user_id = localStorage.getItem("user_id");
     this.myself = this.$route.params.user_id == user_id && this.loggedin;
     const access_token = localStorage.getItem("access_token");
-    this.profile = await api.getProfile(
+    this.profile = await api.getProfile(this,
       this.$route.params.user_id,
       access_token
     );

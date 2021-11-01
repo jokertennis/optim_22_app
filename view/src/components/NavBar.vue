@@ -65,7 +65,7 @@ export default {
       if (this.refresh_token !== null) {
         const user_id = localStorage.getItem("user_id");
         this.user.user_id = user_id;
-        this.user = await api.getProfile(user_id);
+        this.user = await api.getProfile(this, user_id);
       }
     }
   },
@@ -79,7 +79,7 @@ export default {
     if (this.refresh_token !== null) {
       const user_id = localStorage.getItem("user_id");
       this.user.user_id = user_id;
-      this.user = await api.getProfile(user_id);
+      this.user = await api.getProfile(this, user_id);
     }
   }
 };

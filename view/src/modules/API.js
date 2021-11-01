@@ -156,7 +156,7 @@ async function refreshToken(component, access_token, refresh_token) {
 
 
 // ユーザプロフィールの取得API
-async function getProfile(user_id, access_token) {
+async function getProfile(component, user_id, access_token) {
     const response = await fetch(`${process.env.API}/user/${user_id}`, {
         method: 'GET',
         headers: {
@@ -167,6 +167,17 @@ async function getProfile(user_id, access_token) {
     if (response.status === 200) {
         const profile = await response.json();
         if (process.env.PATCH) {
+            // 存在しないユーザの場合
+            if (profile.user_id == 0) {
+                // リフレッシュトークンを削除する
+                component.$cookies.remove("refresh_token");
+                // ホームページに移動する
+                if (component.$route.path !== "/") {
+                    component.$router.push('/');
+                } else {
+                    component.$router.go('/');
+                }
+            }
             profile.SNS = profile.sns;
             delete profile.sns;
             if (profile.SNS === null) {

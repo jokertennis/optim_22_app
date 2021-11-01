@@ -168,7 +168,7 @@ const ModalForm = {
   async created() {
     const user_id = localStorage.getItem("user_id");
     const access_token = localStorage.getItem("access_token");
-    this.profile = await api.getProfile(user_id, access_token);
+    this.profile = await api.getProfile(this, user_id, access_token);
   },
   /* html */
   template: `
