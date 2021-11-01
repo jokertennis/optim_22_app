@@ -17,11 +17,15 @@
                     // としたいが上手くいかなかった
                     String(
                       String(
-                        JSON.stringify(
-                          comments.find(com => com.comment_id === c.reply_id)
+                        String(
+                          JSON.stringify(
+                            comments.find(com => com.comment_id === c.reply_id)
+                          )
                         )
-                      ).split(',')[6]
-                    ).slice(8, -1)
+                          .split(',')
+                          .find(key => key[3] === 'x')
+                      ).slice(8, -1)
+                    )
                   "
                   position="is-right"
                   size="is-large"
