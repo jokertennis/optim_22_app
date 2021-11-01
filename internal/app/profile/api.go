@@ -86,7 +86,7 @@ func (rc resource) put() gin.HandlerFunc {
       c.Status(http.StatusBadRequest)
       return 
     } else {
-      c.Status(http.StatusOK)
+      c.Status(http.StatusCreated)
       return 
     }
   }
