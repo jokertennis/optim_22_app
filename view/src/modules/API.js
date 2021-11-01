@@ -240,8 +240,8 @@ async function editProfile(component, user, access_token) {
         },
         body: JSON.stringify(profile)
     });
-    // 登録成功時
-    if (response.status === 201) {
+    //  編集成功時
+    if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`PUT /api/user/${user.user_id}\tEditProfile`);
         }
@@ -289,7 +289,7 @@ async function makeRequest(component, user_id, request, access_token) {
             content: request.detail
         })
     });
-    // 登録成功時
+    // 投稿成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log('POST /api/request\tNewRequest');
@@ -341,7 +341,7 @@ async function editRequest(component, request, access_token) {
         },
         body: JSON.stringify(request)
     });
-    // 登録成功時
+    // 編集成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`PUT /api/request/${request.request_id}\tEditRequest`);
@@ -376,7 +376,7 @@ async function joinRequest(component, request, access_token) {
         },
         body: JSON.stringify(patchedRequest)
     });
-    // 登録成功時
+    // 参加成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`POST /api/request/${request.request_id}\tJoinRequest`);
@@ -406,7 +406,7 @@ async function submitSubmission(component, submission, access_token) {
         },
         body: JSON.stringify(submission)
     });
-    // 登録成功時
+    // 提出成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`POST /api/submission/${submission.request_id}\tNewSubmission`);
@@ -460,7 +460,7 @@ async function editSubmission(component, submission, access_token) {
         },
         body: JSON.stringify(patchedSubmission)
     });
-    // 登録成功時
+    // 編集成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`PUT /api/submission/${submission.submission_id}\tEditSubmission`);
@@ -515,7 +515,7 @@ async function addComment(component, comment, access_token) {
         },
         body: JSON.stringify(comment)
     });
-    // 登録成功時
+    // 投稿成功時
     if (response.status === 201) {
         if (process.env.NODE_ENV === "development") {
             console.log(`POST /api/discussion/${comment.comment_id}\tNewComment`);
@@ -549,7 +549,7 @@ async function chooseWinner(component, request, access_token) {
         },
         body: JSON.stringify(request)
     });
-    // 登録成功時
+    // 決定成功時
     if (response.status === 200) {
         if (process.env.NODE_ENV === "development") {
             console.log(`POST /api/winner/${request.request_id}\tChooseWinner`);
